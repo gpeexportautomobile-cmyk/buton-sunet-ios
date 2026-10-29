@@ -1,0 +1,117 @@
+name: Build IPA
+on:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Write source
+        run: |
+          mkdir -p Payload/ButonSunet.app
+          cat > main.m <<'EOF'
+          #import <UIKit/UIKit.h>
+          #import <AVFoundation/AVFoundation.h>
+          #import <AudioToolbox/AudioToolbox.h>
+          @interface VC : UIViewController
+          @property (nonatomic, strong) AVAudioPlayer *player;
+          @end
+          @implementation VC
+          - (void)viewDidLoad {
+              [super viewDidLoad];
+              self.view.backgroundColor = [UIColor systemBackgroundColor];
+              UIButton *b = [UIButton buttonWithType:UIButtonTypeSystem];
+              [b setTitle:@"Apasă-mă!" forState:UIControlStateNormal];
+              b.titleLabel.font = [UIFont boldSystemFontOfSize:36];
+              b.backgroundColor = [UIColor systemBlueColor];
+              [b setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+              b.layer.cornerRadius = 130;
+              b.translatesAutoresizingMaskIntoConstraints = NO;
+              [b addTarget:self action:@selector(tap) forControlEvents:UIControlEventTouchUpInside];
+              [self.view addSubview:b];
+              [NSLayoutConstraint activateConstraints:@[
+                  [b.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
+                  [b.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor],
+                  [b.widthAnchor constraintEqualToConstant:260],
+                  [b.heightAnchor constraintEqualToConstant:260]]];
+              [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+              NSURL *u = [[NSBundle mainBundle] URLForResource:@"beep" withExtension:@"wav"];
+              if (u) { self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:u error:nil]; [self.player prepareToPlay]; }
+          }
+          - (void)tap {
+              if (self.player) { self.player.currentTime = 0; [self.player play]; }
+              else { AudioServicesPlaySystemSound(1104); }
+          }
+          @end
+          @interface AppDelegate : UIResponder <UIApplicationDelegate>
+          @property (nonatomic, strong) UIWindow *window;
+          @end
+          @implementation AppDelegate
+          - (BOOL)application:(UIApplication *)a didFinishLaunchingWithOptions:(NSDictionary *)o {
+              self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+              self.window.rootViewController = [VC new];
+              [self.window makeKeyAndVisible];
+              return YES;
+          }
+          @end
+          int main(int argc, char *argv[]) {
+              @autoreleasepool { return UIApplicationMain(argc, argv, nil, NSStringFromClass(AppDelegate.class)); }
+          }
+          EOF
+          cat > Payload/ButonSunet.app/Info.plist <<'EOF'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+          <key>CFBundleDisplayName</key><string>Buton Sunet</string>
+          <key>CFBundleExecutable</key><string>ButonSunet</string>
+          <key>CFBundleIdentifier</key><string>com.lucian.butonsunet</string>
+          <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
+          <key>CFBundleName</key><string>ButonSunet</string>
+          <key>CFBundlePackageType</key><string>APPL</string>
+          <key>CFBundleShortVersionString</key><string>1.0</string>
+          <key>CFBundleVersion</key><string>1</string>
+          <key>CFBundleSupportedPlatforms</key><array><string>iPhoneOS</string></array>
+          <key>LSRequiresIPhoneOS</key><true/>
+          <key>MinimumOSVersion</key><string>14.0</string>
+          <key>UIDeviceFamily</key><array><integer>1</integer></array>
+          <key>UILaunchScreen</key><dict/>
+          <key>UIRequiredDeviceCapabilities</key><array><string>arm64</string></array>
+          <key>UISupportedInterfaceOrientations</key><array><string>UIInterfaceOrientationPortrait</string></array>
+          </dict></plist>
+          EOF
+      - name: Make sound
+        run: |
+          python3 - <<'EOF'
+          import wave, struct, math
+          r = 44100; n = int(r * 0.35)
+          w = wave.open('Payload/ButonSunet.app/beep.wav', 'w')
+          w.setnchannels(1); w.setsampwidth(2); w.setframerate(r)
+          s = []
+          for i in range(n):
+              t = i / r
+              v = min(1, 200 * t) * math.exp(-8 * t) * (0.6 * math.sin(2 * math.pi * 880 * t) + 0.3 * math.sin(2 * math.pi * 1320 * t))
+              s.append(struct.pack('<h', int(v * 30000)))
+          w.writeframes(b''.join(s)); w.close()
+          EOF
+      - name: Build IPA
+        run: |
+          xcrun -sdk iphoneos clang -target arm64-apple-ios14.0 -fobjc-arc -O2 \
+            -framework UIKit -framework Foundation -framework AVFoundation -framework AudioToolbox \
+            main.m -o Payload/ButonSunet.app/ButonSunet
+          printf 'APPL????' > Payload/ButonSunet.app/PkgInfo
+          plutil -lint Payload/ButonSunet.app/Info.plist
+          codesign -s - --force Payload/ButonSunet.app
+          zip -qry ButonSunet.ipa Payload
+          file Payload/ButonSunet.app/ButonSunet
+          unzip -l ButonSunet.ipa
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ButonSunet-ipa
+          path: ButonSunet.ipa
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0
+          name: Buton Sunet v1.0
+          files: ButonSunet.ipa
