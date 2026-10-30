@@ -1,0 +1,202 @@
+name: Build Grila4
+on:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Scrie codul
+        run: |
+          mkdir -p src && cd src
+          cat > main.m << 'EOF'
+          #import <UIKit/UIKit.h>
+          #import <WebKit/WebKit.h>
+
+          @interface Cell : UIView <UITextFieldDelegate, WKNavigationDelegate>
+          @property (nonatomic, strong) UITextField *bar;
+          @property (nonatomic, strong) WKWebView *web;
+          @property (nonatomic, strong) UIButton *back;
+          @property (nonatomic, strong) UIButton *full;
+          @end
+
+          @implementation Cell
+          - (instancetype)initWithURL:(NSString *)u {
+            self = [super initWithFrame:CGRectZero];
+            if (self) {
+              self.backgroundColor = UIColor.systemGray5Color;
+              self.layer.borderWidth = 1;
+              self.layer.borderColor = UIColor.systemGrayColor.CGColor;
+              _back = [UIButton buttonWithType:UIButtonTypeSystem];
+              [_back setTitle:@"‹" forState:UIControlStateNormal];
+              _back.titleLabel.font = [UIFont boldSystemFontOfSize:24];
+              [_back addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+              _full = [UIButton buttonWithType:UIButtonTypeSystem];
+              [_full setTitle:@"⤢" forState:UIControlStateNormal];
+              _full.titleLabel.font = [UIFont boldSystemFontOfSize:20];
+              _bar = [[UITextField alloc] init];
+              _bar.borderStyle = UITextBorderStyleRoundedRect;
+              _bar.font = [UIFont systemFontOfSize:13];
+              _bar.keyboardType = UIKeyboardTypeWebSearch;
+              _bar.autocapitalizationType = UITextAutocapitalizationTypeNone;
+              _bar.autocorrectionType = UITextAutocorrectionTypeNo;
+              _bar.returnKeyType = UIReturnKeyGo;
+              _bar.clearButtonMode = UITextFieldViewModeWhileEditing;
+              _bar.delegate = self;
+              _bar.text = u;
+              WKWebViewConfiguration *c = [WKWebViewConfiguration new];
+              c.allowsInlineMediaPlayback = YES;
+              _web = [[WKWebView alloc] initWithFrame:CGRectZero configuration:c];
+              _web.navigationDelegate = self;
+              _web.allowsBackForwardNavigationGestures = YES;
+              [self addSubview:_web];
+              [self addSubview:_back];
+              [self addSubview:_bar];
+              [self addSubview:_full];
+              [self load:u];
+            }
+            return self;
+          }
+          - (void)layoutSubviews {
+            [super layoutSubviews];
+            CGFloat w = self.bounds.size.width, h = 34;
+            _back.frame = CGRectMake(0, 0, 32, h);
+            _full.frame = CGRectMake(w - 36, 0, 36, h);
+            _bar.frame = CGRectMake(34, 3, w - 72, h - 6);
+            _web.frame = CGRectMake(0, h, w, self.bounds.size.height - h);
+          }
+          - (void)load:(NSString *)t {
+            t = [t stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
+            if (t.length == 0) return;
+            NSString *s;
+            if (![t containsString:@"."] || [t containsString:@" "]) {
+              NSString *q = [t stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
+              s = [@"https://www.google.com/search?q=" stringByAppendingString:q];
+            } else if ([t containsString:@"://"]) {
+              s = t;
+            } else {
+              s = [@"https://" stringByAppendingString:t];
+            }
+            NSURL *url = [NSURL URLWithString:s];
+            if (url) [_web loadRequest:[NSURLRequest requestWithURL:url]];
+          }
+          - (BOOL)textFieldShouldReturn:(UITextField *)tf {
+            [self load:tf.text];
+            [tf resignFirstResponder];
+            return YES;
+          }
+          - (void)webView:(WKWebView *)w didFinishNavigation:(WKNavigation *)n {
+            if (!_bar.isFirstResponder && w.URL) _bar.text = w.URL.absoluteString;
+          }
+          - (void)goBack { if (_web.canGoBack) [_web goBack]; }
+          @end
+
+          @interface VC : UIViewController
+          @property (nonatomic, strong) NSMutableArray<Cell *> *cells;
+          @property (nonatomic) NSInteger focus;
+          @end
+
+          @implementation VC
+          - (void)viewDidLoad {
+            [super viewDidLoad];
+            self.view.backgroundColor = UIColor.blackColor;
+            _focus = -1;
+            _cells = [NSMutableArray array];
+            NSArray *urls = @[@"https://www.google.com", @"https://www.wikipedia.org",
+                              @"https://www.youtube.com", @"https://github.com"];
+            for (NSString *u in urls) {
+              Cell *c = [[Cell alloc] initWithURL:u];
+              [c.full addTarget:self action:@selector(toggle:) forControlEvents:UIControlEventTouchUpInside];
+              [self.view addSubview:c];
+              [_cells addObject:c];
+            }
+          }
+          - (void)viewDidLayoutSubviews { [super viewDidLayoutSubviews]; [self place]; }
+          - (void)place {
+            CGRect r = UIEdgeInsetsInsetRect(self.view.bounds, self.view.safeAreaInsets);
+            CGFloat w = r.size.width / 2, h = r.size.height / 2;
+            for (NSInteger i = 0; i < (NSInteger)_cells.count; i++) {
+              Cell *c = _cells[i];
+              if (_focus < 0) {
+                c.hidden = NO;
+                c.frame = CGRectMake(r.origin.x + (i % 2) * w, r.origin.y + (i / 2) * h, w, h);
+              } else if (_focus == i) {
+                c.hidden = NO;
+                c.frame = r;
+                [self.view bringSubviewToFront:c];
+              } else {
+                c.hidden = YES;
+              }
+            }
+          }
+          - (void)toggle:(UIButton *)b {
+            NSInteger i = [_cells indexOfObject:(Cell *)b.superview];
+            _focus = (_focus == i) ? -1 : i;
+            [UIView animateWithDuration:0.25 animations:^{ [self place]; [self.view layoutIfNeeded]; }];
+          }
+          @end
+
+          @interface AD : UIResponder <UIApplicationDelegate>
+          @property (nonatomic, strong) UIWindow *window;
+          @end
+          @implementation AD
+          - (BOOL)application:(UIApplication *)a didFinishLaunchingWithOptions:(NSDictionary *)o {
+            self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+            self.window.rootViewController = [VC new];
+            [self.window makeKeyAndVisible];
+            return YES;
+          }
+          @end
+
+          int main(int argc, char *argv[]) {
+            @autoreleasepool { return UIApplicationMain(argc, argv, nil, NSStringFromClass([AD class])); }
+          }
+          EOF
+          cat > Info.plist << 'EOF'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+            <key>CFBundleExecutable</key><string>Grila4</string>
+            <key>CFBundleIdentifier</key><string>com.lucian.grila4</string>
+            <key>CFBundleName</key><string>Grila4</string>
+            <key>CFBundleDisplayName</key><string>Grila 4</string>
+            <key>CFBundlePackageType</key><string>APPL</string>
+            <key>CFBundleShortVersionString</key><string>1.0</string>
+            <key>CFBundleVersion</key><string>1</string>
+            <key>MinimumOSVersion</key><string>14.0</string>
+            <key>CFBundleSupportedPlatforms</key><array><string>iPhoneOS</string></array>
+            <key>UIDeviceFamily</key><array><integer>1</integer></array>
+            <key>UIRequiredDeviceCapabilities</key><array><string>arm64</string></array>
+            <key>UILaunchScreen</key><dict/>
+            <key>UISupportedInterfaceOrientations</key>
+            <array>
+              <string>UIInterfaceOrientationPortrait</string>
+              <string>UIInterfaceOrientationLandscapeLeft</string>
+              <string>UIInterfaceOrientationLandscapeRight</string>
+            </array>
+            <key>NSAppTransportSecurity</key><dict><key>NSAllowsArbitraryLoads</key><true/></dict>
+          </dict>
+          </plist>
+          EOF
+      - name: Compileaza
+        run: |
+          cd src
+          mkdir -p Payload/Grila4.app
+          xcrun -sdk iphoneos clang -fobjc-arc -target arm64-apple-ios14.0 \
+            main.m -framework UIKit -framework WebKit -framework Foundation \
+            -o Payload/Grila4.app/Grila4
+          cp Info.plist Payload/Grila4.app/
+          codesign -f -s - Payload/Grila4.app
+          zip -r ../Grila4.ipa Payload
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Grila4
+          path: Grila4.ipa
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: grila4-v1.${{ github.run_number }}
+          name: Grila4 v1.${{ github.run_number }}
+          files: Grila4.ipa
