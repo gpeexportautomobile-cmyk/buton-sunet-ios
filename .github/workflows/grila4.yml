@@ -6,7 +6,7 @@ permissions:
   contents: write
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-15
     steps:
       - name: Scrie codul
         run: |
