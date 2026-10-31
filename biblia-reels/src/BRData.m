@@ -338,13 +338,13 @@ static BOOL BRAliasHits(NSArray<NSString *> *aliases, NSArray<NSString *> *toks)
 - (void)addComment:(NSString *)text item:(NSString *)itemId {
     NSString *clean = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if (clean.length == 0 || itemId.length == 0) return;
-    NSMutableArray *list = [self.commentsFor:itemId mutableCopy];
+    NSMutableArray *list = [[self commentsFor:itemId] mutableCopy];
     [list addObject:@{@"author": self.displayName, @"text": clean, @"at": @(NSDate.date.timeIntervalSince1970)}];
     [self box:@"comments"][itemId] = list;
     [self save];
 }
 - (void)removeCommentAt:(NSUInteger)index item:(NSString *)itemId {
-    NSMutableArray *list = [self.commentsFor:itemId mutableCopy];
+    NSMutableArray *list = [[self commentsFor:itemId] mutableCopy];
     if (index >= list.count) return;
     [list removeObjectAtIndex:index];
     [self box:@"comments"][itemId] = list;
@@ -370,7 +370,7 @@ static BOOL BRAliasHits(NSArray<NSString *> *aliases, NSArray<NSString *> *toks)
 }
 - (void)addMessageRole:(NSString *)role text:(NSString *)text character:(NSString *)cid {
     if (cid.length == 0 || text.length == 0) return;
-    NSMutableArray *list = [self.messagesFor:cid mutableCopy];
+    NSMutableArray *list = [[self messagesFor:cid] mutableCopy];
     [list addObject:@{@"role": role ?: @"user", @"text": text}];
     if (list.count > 40) [list removeObjectsInRange:NSMakeRange(0, list.count - 40)];
     [self box:@"messages"][cid] = list;
