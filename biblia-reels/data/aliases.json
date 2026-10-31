@@ -1,0 +1,49 @@
+{
+  "characters": [
+    {
+      "id": "dumnezeu",
+      "name": "Dumnezeu",
+      "order": 0,
+      "color": "#E6C36A",
+      "aliases": ["Duhul lui Dumnezeu", "Domnul Dumnezeu", "Dumnezeu", "Domnul"],
+      "related": ["adam", "eva", "sarpele", "heruvimi"],
+      "bio": "Cel care a făcut cerurile și pământul. În aceste capitole creează lumea, îl face pe om și vorbește în grădină."
+    },
+    {
+      "id": "adam",
+      "name": "Adam",
+      "order": 1,
+      "color": "#C4A484",
+      "aliases": ["Adam", "omului", "omul", "om"],
+      "related": ["dumnezeu", "eva"],
+      "bio": "Omul făcut din țărâna pământului, căruia Dumnezeu i-a suflat suflare de viață. A trăit în Eden și a fost izgonit după ce a mâncat din pom."
+    },
+    {
+      "id": "eva",
+      "name": "Eva",
+      "order": 2,
+      "color": "#E0A0B0",
+      "aliases": ["Eva", "nevestei", "nevasta", "femeii", "femeia", "femeie"],
+      "related": ["adam", "dumnezeu", "sarpele"],
+      "bio": "Femeia făcută din coasta omului. Adam i-a pus numele Eva, pentru că este mama tuturor celor vii."
+    },
+    {
+      "id": "sarpele",
+      "name": "Șarpele",
+      "order": 3,
+      "color": "#7D9A78",
+      "aliases": ["șarpelui", "şarpelui", "șarpele", "şarpele", "șarpe", "şarpe"],
+      "related": ["eva", "dumnezeu"],
+      "bio": "Fiara cea mai șireată dintre fiarele câmpului. A vorbit cu femeia despre pom și a fost blestemat să se târască."
+    },
+    {
+      "id": "heruvimi",
+      "name": "Heruvimi",
+      "order": 4,
+      "color": "#A9B4C9",
+      "aliases": ["heruvimi", "heruvim"],
+      "related": ["dumnezeu"],
+      "bio": "Păzitorii puși la răsăritul grădinii Edenului, cu o sabie învăpăiată, ca să păzească drumul spre pomul vieții."
+    }
+  ]
+}
