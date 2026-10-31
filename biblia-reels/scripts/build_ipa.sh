@@ -67,9 +67,13 @@ if [[ "${#LIBS[@]}" -eq 0 ]]; then
 fi
 
 APP="$WORK/Payload/BibliaReels.app"
+FORCE=()
+for lib in "${LIBS[@]}"; do
+  FORCE+=("-Wl,-force_load,${lib}")
+done
 "$CXX" "${FLAGS[@]}" -fobjc-arc \
   "$WORK"/obj/*.o \
-  -Wl,-all_load "${LIBS[@]}" -Wl,-noall_load \
+  "${FORCE[@]}" \
   -framework UIKit -framework Foundation -framework AVFoundation \
   -framework AudioToolbox -framework CoreGraphics -framework QuartzCore \
   -framework Accelerate -framework CoreFoundation \

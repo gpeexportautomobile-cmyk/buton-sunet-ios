@@ -81,7 +81,7 @@ static UIFont *BRSerif(CGFloat size, BOOL bold) {
     _avatar.clipsToBounds = YES;
     _avatarName = [self label:[UIFont systemFontOfSize:10 weight:UIFontWeightSemibold] color:UIColor.whiteColor];
     _avatarName.textAlignment = NSTextAlignmentCenter;
-    _like = [self iconButton:@"heart" action:@selector(like)];
+    _like = [self iconButton:@"heart" action:@selector(likeTapped)];
     _comment = [self iconButton:@"bubble.right" action:@selector(commentTap)];
     _save = [self iconButton:@"bookmark" action:@selector(saveTap)];
     _share = [self iconButton:@"square.and.arrow.up" action:@selector(shareTap)];
@@ -269,7 +269,7 @@ static UIFont *BRSerif(CGFloat size, BOOL bold) {
 }
 - (void)setHighlightRange:(NSRange)range { [self paintHighlight:YES range:range]; }
 - (void)clearHighlight { [self paintHighlight:NO range:NSMakeRange(0, 0)]; }
-- (void)like { [self.delegate performSelector:@selector(reelLike:) withObject:self]; }
+- (void)likeTapped { [self.delegate performSelector:@selector(reelLike:) withObject:self]; }
 - (void)commentTap { [self.delegate performSelector:@selector(reelComment:) withObject:self]; }
 - (void)saveTap { [self.delegate performSelector:@selector(reelSave:) withObject:self]; }
 - (void)shareTap { [self.delegate performSelector:@selector(reelShare:) withObject:self]; }
