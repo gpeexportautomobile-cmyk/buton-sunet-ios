@@ -1,0 +1,353 @@
+{
+  "translation": {
+    "id": "cornilescu-1924",
+    "name": "Cornilescu 1924",
+    "language": "ro",
+    "license": "Textul Cornilescu publicat în 1924, ortografie veche. În Statele Unite este în domeniul public (publicat înainte de 1930). Copiat din m0ty/bible-io-json, fișierul Romanian/ron-cornilescu-1924.json.",
+    "source": "https://github.com/m0ty/bible-io-json/blob/main/Romanian/ron-cornilescu-1924.json"
+  },
+  "books": [
+    {
+      "id": "gen",
+      "name": "Geneza",
+      "order": 1,
+      "chapters": [
+        {
+          "n": 1,
+          "verses": [
+            {
+              "n": 1,
+              "text": "La început, Dumnezeu a făcut cerurile şi pămîntul."
+            },
+            {
+              "n": 2,
+              "text": "Pămîntul era pustiu şi gol; peste faţa adîncului de ape era întunerec, şi Duhul lui Dumnezeu se mişca pe deasupra apelor."
+            },
+            {
+              "n": 3,
+              "text": "Dumnezeu a zis: ,,Să fie lumină!`` Şi a fost lumină."
+            },
+            {
+              "n": 4,
+              "text": "Dumnezeu a văzut că lumina era bună; şi Dumnezeu a despărţit lumina de întunerec."
+            },
+            {
+              "n": 5,
+              "text": "Dumnezeu a numit lumina zi, iar întunerecul l -a numit noapte. Astfel, a fost o seară, şi apoi a fost o dimineaţă: aceasta a fost ziua întîi."
+            },
+            {
+              "n": 6,
+              "text": "Dumnezeu a zis: ,,Să fie o întindere între ape, şi ea să despartă apele de ape.``"
+            },
+            {
+              "n": 7,
+              "text": "Şi Dumnezeu a făcut întinderea, şi ea a despărţit apele cari sînt dedesuptul întinderii de apele cari sînt deasupra întinderii. Şi aşa a fost."
+            },
+            {
+              "n": 8,
+              "text": "Dumnezeu a numit întinderea cer. Astfel, a fost o seară, şi apoi a fost o dimineaţă: aceasta a fost ziua a doua."
+            },
+            {
+              "n": 9,
+              "text": "Dumnezeu a zis: ,,Să se strîngă la un loc apele cari sînt dedesuptul cerului, şi să se arate uscatul!`` Şi aşa a fost."
+            },
+            {
+              "n": 10,
+              "text": "Dumnezeu a numit uscatul pămînt, iar grămada de ape a numit -o mări. Dumnezeu a văzut că lucrul acesta era bun."
+            },
+            {
+              "n": 11,
+              "text": "Apoi Dumnezeu a zis: ,,Să dea pămîntul verdeaţă, iarbă cu sămînţă, pomi roditori, cari să facă rod după soiul lor şi cari să aibă în ei sămînţa lor pe pămînt.`` Şi aşa a fost."
+            },
+            {
+              "n": 12,
+              "text": "Pămîntul a dat verdeaţă, iarbă cu sămînţă după soiul ei, şi pomi cari fac rod şi cari îşi au sămînţa în ei, după soiul lor. Dumnezeu a văzut că lucrul acesta era bun."
+            },
+            {
+              "n": 13,
+              "text": "Astfel, a fost o seară, şi apoi a fost o dimineaţă: aceasta a fost ziua a treia."
+            },
+            {
+              "n": 14,
+              "text": "Dumnezeu a zis: ,,Să fie nişte luminători în întinderea cerului, ca să despartă ziua de noapte; ei să fie nişte semne cari să arate vremile, zilele şi anii;"
+            },
+            {
+              "n": 15,
+              "text": "şi să slujească de luminători în întinderea cerului, ca să lumineze pămîntul.`` Şi aşa a fost."
+            },
+            {
+              "n": 16,
+              "text": "Dumnezeu a făcut cei doi mari luminători, şi anume: luminătorul cel mai mare ca să stăpînească ziua, şi luminătorul cel mai mic ca să stăpînească noaptea; a făcut şi stelele."
+            },
+            {
+              "n": 17,
+              "text": "Dumnezeu i -a aşezat în întinderea cerului, ca să lumineze pămîntul,"
+            },
+            {
+              "n": 18,
+              "text": "să stăpînească ziua şi noaptea, şi să despartă lumina de întunerec. Dumnezeu a văzut că lucrul acesta era bun."
+            },
+            {
+              "n": 19,
+              "text": "Astfel, a fost o seară, şi apoi a fost o dimineaţă: aceasta a fost ziua a patra."
+            },
+            {
+              "n": 20,
+              "text": "Dumnezeu a zis: ,,Să mişune apele de vieţuitoare, şi să sboare păsări deasupra pămîntului pe întinderea cerului.``"
+            },
+            {
+              "n": 21,
+              "text": "Dumnezeu a făcut peştii cei mari şi toate vieţuitoarele cari se mişcă şi de cari mişună apele, după soiurile lor; a făcut şi orice pasăre înaripată după soiul ei. Dumnezeu a văzut că erau bune."
+            },
+            {
+              "n": 22,
+              "text": "Dumnezeu le -a binecuvîntat, şi a zis: ,,Creşteţi, înmulţiţi-vă, şi umpleţi apele mărilor; să se înmulţească şi păsările pe pămînt``."
+            },
+            {
+              "n": 23,
+              "text": "Astfel a fost o seară, şi apoi a fost o dimineaţă: aceasta a fost ziua a cincea."
+            },
+            {
+              "n": 24,
+              "text": "Dumnezeu a zis: ,,Să dea pămîntul vieţuitoare după soiul lor, vite, tîrîtoare şi fiare pămînteşti, după soiul lor.`` Şi aşa a fost."
+            },
+            {
+              "n": 25,
+              "text": "Dumnezeu a făcut fiarele pămîntului după soiul lor, vitele după soiul lor şi toate tîrîtoarele pămîntului după soiul lor. Dumnezeu a văzut că erau bune."
+            },
+            {
+              "n": 26,
+              "text": "Apoi Dumnezeu a zis: ,,Să facem om după chipul Nostru, după asemănarea Noastră; el să stăpînească peste peştii mării, peste păsările cerului, peste vite, peste tot pămîntul şi peste toate tîrîtoarele cari se mişcă pe pămînt.``"
+            },
+            {
+              "n": 27,
+              "text": "Dumnezeu a făcut pe om după chipul Său, l -a făcut după chipul lui Dumnezeu; parte bărbătească şi parte femeiască i -a făcut."
+            },
+            {
+              "n": 28,
+              "text": "Dumnezeu i -a binecuvîntat, şi Dumnezeu le -a zis: ,,Creşteţi, înmulţiţi-vă, umpleţi pămîntul, şi supuneţi -l; şi stăpîniţi peste peştii mării, peste păsările cerului, şi peste orice vieţuitoare care se mişcă pe pămînt.``"
+            },
+            {
+              "n": 29,
+              "text": "Şi Dumnezeu a zis: ,,Iată că v'am dat orice iarbă care face sămînţă şi care este pe faţa întregului pămînt, şi orice pom, care are în el rod cu sămînţă: aceasta să fie hrana voastră.``"
+            },
+            {
+              "n": 30,
+              "text": "Iar tuturor fiarelor pămîntului, tuturor păsărilor cerului, şi tuturor vietăţilor cari se mişcă pe pămînt, cari au în ele o suflare de viaţă, le-am dat ca hrană toată iarba verde.`` Şi aşa a fost."
+            },
+            {
+              "n": 31,
+              "text": "Dumnezeu S'a uitat la tot ce făcuse; şi iată că erau foarte bune. Astfel a fost o seară, şi apoi a fost o dimineaţă: aceasta a fost ziua a şasea."
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "verses": [
+            {
+              "n": 1,
+              "text": "Astfel au fost sfîrşite cerurile şi pămîntul, şi toată oştirea lor."
+            },
+            {
+              "n": 2,
+              "text": "În ziua a şaptea Dumnezeu Şi -a sfîrşit lucrarea, pe care o făcuse; şi în ziua a şaptea S'a odihnit de toată lucrarea Lui pe care o făcuse."
+            },
+            {
+              "n": 3,
+              "text": "Dumnezeu a binecuvîntat ziua a şaptea şi a sfinţit -o, pentrucă în ziua aceasta S'a odihnit de toată lucrarea Lui, pe care o zidise şi o făcuse."
+            },
+            {
+              "n": 4,
+              "text": "Iată istoria cerurilor şi a pămîntului, cînd au fost făcute."
+            },
+            {
+              "n": 5,
+              "text": "În ziua cînd a făcut Domnul Dumnezeu un pămînt şi ceruri, nu era încă pe pămînt nici un copăcel de cîmp şi nici o iarbă de pe cîmp nu încolţea încă: fiindcă Domnul Dumnezeu nu dăduse încă ploaie pe pămînt şi nu era nici un om ca să lucreze pămîntul."
+            },
+            {
+              "n": 6,
+              "text": "Ci un abur se ridica de pe pămînt şi uda toată faţa pămîntului."
+            },
+            {
+              "n": 7,
+              "text": "Domnul Dumnezeu a făcut pe om din ţărîna pămîntului, i -a suflat în nări suflare de viaţă, şi omul s'a făcut astfel un suflet viu."
+            },
+            {
+              "n": 8,
+              "text": "Apoi Domnul Dumnezeu a sădit o grădină în Eden, spre răsărit; şi a pus acolo pe omul pe care -l întocmise."
+            },
+            {
+              "n": 9,
+              "text": "Domnul Dumnezeu a făcut să răsară din pămînt tot felul de pomi, plăcuţi la vedere şi buni la mîncare, şi pomul vieţii în mijlocul grădinii, şi pomul cunoştinţei binelui şi răului."
+            },
+            {
+              "n": 10,
+              "text": "Un rîu ieşea din Eden şi uda grădina; şi de acolo se împărţea şi se făcea patru braţe."
+            },
+            {
+              "n": 11,
+              "text": "Numele celui dintîi este Pison; el înconjoară toată ţara Havila, unde se găseşte aur."
+            },
+            {
+              "n": 12,
+              "text": "Aurul din ţara aceasta este bun; acolo se găseşte şi bedelion şi piatră de onix."
+            },
+            {
+              "n": 13,
+              "text": "Numele rîului al doilea este Ghihon; el înconjoară toată ţara Cuş."
+            },
+            {
+              "n": 14,
+              "text": "Numele celui de al treilea este Hidechel: el curge la răsăritul Asiriei. Al patrulea rîu este Eufratul."
+            },
+            {
+              "n": 15,
+              "text": "Domnul Dumnezeu a luat pe om şi l -a aşezat în grădina Edenului, ca s'o lucreze şi s'o păzească."
+            },
+            {
+              "n": 16,
+              "text": "Domnul Dumnezeu a dat omului porunca aceasta: ,,Poţi să mănînci după plăcere din orice pom din grădină;"
+            },
+            {
+              "n": 17,
+              "text": "dar din pomul cunoştinţei binelui şi răului să nu mănînci, căci în ziua în care vei mînca din el, vei muri negreşit.``"
+            },
+            {
+              "n": 18,
+              "text": "Domnul Dumnezeu a zis: ,,Nu este bine ca omul să fie singur; am să -i fac un ajutor potrivit pentru el.``"
+            },
+            {
+              "n": 19,
+              "text": "Domnul Dumnezeu a făcut din pămînt toate fiarele cîmpului şi toate păsările cerului; şi le -a adus la om, ca să vadă cum are să le numească; şi orice nume pe care -l dădea omul fiecărei vieţuitoare, acela -i era numele."
+            },
+            {
+              "n": 20,
+              "text": "Şi omul a pus nume tuturor vitelor, păsărilor cerului şi tuturor fiarelor cîmpului; dar, pentru om, nu s'a găsit niciun ajutor, care să i se potrivească."
+            },
+            {
+              "n": 21,
+              "text": "Atunci Domnul Dumnezeu a trimes un somn adînc peste om, şi omul a adormit; Domnul Dumnezeu a luat una din coastele lui şi a închis carnea la locul ei."
+            },
+            {
+              "n": 22,
+              "text": "Din coasta pe care o luase din om, Domnul Dumnezeu a făcut o femeie şi a adus -o la om."
+            },
+            {
+              "n": 23,
+              "text": "Şi omul a zis: ,,Iată în sfîrşit aceea care este os din oasele mele şi carne din carnea mea! Ea se va numi, femeie, pentrucă a fost luată din om.``"
+            },
+            {
+              "n": 24,
+              "text": "Deaceea va lăsa omul pe tatăl său şi pe mama sa, şi se va lipi de nevasta sa, şi se vor face un singur trup."
+            },
+            {
+              "n": 25,
+              "text": "Omul şi nevasta lui erau amîndoi goi, şi nu le era ruşine."
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "verses": [
+            {
+              "n": 1,
+              "text": "Şarpele era mai şiret decît toate fiarele cîmpului pe cari le făcuse Domnul Dumnezeu. El a zis femeii: ,,Oare a zis Dumnezeu cu adevărat: ,,Să nu mîncaţi din toţi pomii din grădină?``"
+            },
+            {
+              "n": 2,
+              "text": "Femeia a răspuns şarpelui: ,,Putem să mîncăm din rodul tuturor pomilor din grădină.``"
+            },
+            {
+              "n": 3,
+              "text": "Dar despre rodul pomului din mijlocul grădinii, Dumnezeu a zis: ,,Să nu mîncaţi din el, şi nici să nu vă atingeţi de el, ca să nu muriţi.``"
+            },
+            {
+              "n": 4,
+              "text": "Atunci şarpele a zis femeii: ,,Hotărît, că nu veţi muri:"
+            },
+            {
+              "n": 5,
+              "text": "dar Dumnezeu ştie că, în ziua cînd veţi mînca din el, vi se vor deschide ochii, şi veţi fi ca Dumnezeu, cunoscînd binele şi răul``."
+            },
+            {
+              "n": 6,
+              "text": "Femeia a văzut că pomul era bun de mîncat şi plăcut de privit, şi că pomul era de dorit ca să deschidă cuiva mintea. A luat deci din rodul lui, şi a mîncat; a dat şi bărbatului ei, care era lîngă ea, şi bărbatul a mîncat şi el."
+            },
+            {
+              "n": 7,
+              "text": "Atunci li s'au deschis ochii la amîndoi; au cunoscut că erau goi, au cusut laolaltă frunze de smochin şi şi-au făcut şorţuri din ele."
+            },
+            {
+              "n": 8,
+              "text": "Atunci au auzit glasul Domnului Dumnezeu, care umbla prin grădină în răcoarea zilei: şi omul şi nevasta lui s'au ascuns de Faţa Domnului Dumnezeu printre pomii din grădină."
+            },
+            {
+              "n": 9,
+              "text": "Dar Domnul Dumnezeu a chemat pe om, şi i -a zis: ,,Unde eşti?``"
+            },
+            {
+              "n": 10,
+              "text": "El a răspuns: ,,Ţi-am auzit glasul în grădină; şi mi -a fost frică, pentrucă eram gol, şi m'am ascuns.``"
+            },
+            {
+              "n": 11,
+              "text": "Şi Domnul Dumnezeu a zis: ,,Cine ţi -a spus că eşti gol? Nu cumva ai mîncat din pomul din care îţi poruncisem să nu mănînci?``"
+            },
+            {
+              "n": 12,
+              "text": "Omul a răspuns: ,,Femeia pe care mi-ai dat -o ca să fie lîngă mine, ea mi -a dat din pom şi am mîncat.``"
+            },
+            {
+              "n": 13,
+              "text": "Şi Domnul Dumnezeu a zis femeii: ,,Ce ai făcut?`` Femeia a răspuns: ,,Şarpele m'a amăgit, şi am mîncat din pom.``"
+            },
+            {
+              "n": 14,
+              "text": "Domnul Dumnezeu a zis şarpelui: ,,Fiindcă ai făcut lucrul acesta, blestemat eşti între toate vitele şi între toate fiarele de pe cîmp; în toate zilele vieţii tale să te tîrăşti pe pîntece, şi să mănînci ţărînă."
+            },
+            {
+              "n": 15,
+              "text": "Vrăşmăşie voi pune între tine şi femeie, între sămînţa ta şi sămînţa ei. Aceasta îţi va zdrobi capul, şi tu îi vei zdrobi călcîiul.``"
+            },
+            {
+              "n": 16,
+              "text": "Femeii i -a zis: ,,Voi mări foarte mult suferinţa şi însărcinarea ta; cu durere vei naşte copii, şi dorinţele tale se vor ţinea după bărbatul tău, iar el va stăpîni peste tine.``"
+            },
+            {
+              "n": 17,
+              "text": "Omului i -a zis: ,,Fiindcă ai ascultat de glasul nevestei tale, şi ai mîncat din pomul despre care îţi poruncisem: ,Să nu mănînci deloc din el,` blestemat este acum pămîntul din pricina ta. Cu multă trudă să-ţi scoţi hrana din el în toate zilele vieţii tale;"
+            },
+            {
+              "n": 18,
+              "text": "spini şi pălămidă să-ţi dea, şi să mănînci iarba de pe cîmp."
+            },
+            {
+              "n": 19,
+              "text": "În sudoarea feţei tale să-ţi mănînci pînea, pînă te vei întoarce în pămînt, căci din el ai fost luat; căci ţărînă eşti, şi în ţărînă te vei întoarce.``"
+            },
+            {
+              "n": 20,
+              "text": "Adam a pus nevestei sale numele Eva: căci ea a fost mama tuturor celor vii."
+            },
+            {
+              "n": 21,
+              "text": "Domnul Dumnezeu a făcut lui Adam şi nevestei lui haine de piele, şi i -a îmbrăcat cu ele."
+            },
+            {
+              "n": 22,
+              "text": "Domnul Dumnezeu a zis: ,,Iată că omul a ajuns ca unul din Noi, cunoscînd binele şi răul. Să -l împedecăm dar acum ca nu cumva să-şi întindă mîna, să ia şi din pomul vieţii, să mănînce din el, şi să trăiască în veci.``"
+            },
+            {
+              "n": 23,
+              "text": "Deaceea Domnul Dumnezeu l -a izgonit din grădina Edenului, ca să lucreze pămîntul, din care fusese luat."
+            },
+            {
+              "n": 24,
+              "text": "Astfel a izgonit El pe Adam; şi la răsăritul grădinii Edenului a pus nişte heruvimi, cari să învîrtească o sabie învăpăiată, ca să păzească drumul care duce la pomul vieţii."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
